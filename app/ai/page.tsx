@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Arrow, PageIntro, RatioBar, Stat } from "../components";
 import { dataset, summary } from "../data";
 
@@ -58,9 +57,9 @@ export default function AIReportPage() {
               fields explicitly identify an AI mechanism. Everything else stays
               visible as a review queue rather than being promoted into a claim.
             </p>
-            <Link className="text-link" href="/explore">
+            <a className="text-link" href="/explore">
               Open the explorer with AI filters <Arrow />
-            </Link>
+            </a>
           </div>
           <div className="contrast-panel">
             <p className="panel-kicker">AI-lens records by evidence label</p>
@@ -153,9 +152,9 @@ export default function AIReportPage() {
               <li>Add governance, privacy, civil-rights, retention, and outcome sources.</li>
               <li>Separate municipal confirmation from vendor or secondary claims.</li>
             </ol>
-            <Link className="text-link text-link-light" href="/contribute">
+            <a className="text-link text-link-light" href="/contribute">
               Help review AI records <Arrow />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

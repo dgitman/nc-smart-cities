@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -18,9 +17,9 @@ export function NavLinks() {
       {links.map(([href, label]) => {
         const active = pathname === href || pathname.startsWith(`${href}/`);
         return (
-          <Link key={href} href={href} aria-current={active ? "page" : undefined}>
+          <a key={href} href={href} aria-current={active ? "page" : undefined}>
             {label}
-          </Link>
+          </a>
         );
       })}
     </nav>

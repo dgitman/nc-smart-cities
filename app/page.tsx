@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Arrow, MethodFlow, Stat } from "./components";
 import { pillars, summary } from "./data";
 
@@ -22,12 +21,12 @@ export default function Home() {
               belongs: as a cross-cutting lens inside the larger civic system.
             </p>
             <div className="button-row">
-              <Link className="button button-primary" href="/explore">
+              <a className="button button-primary" href="/explore">
                 Explore {summary.totals.records.toLocaleString()} records <Arrow />
-              </Link>
-              <Link className="button button-secondary" href="/contribute">
+              </a>
+              <a className="button button-secondary" href="/contribute">
                 Help improve the atlas
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -97,9 +96,9 @@ export default function Home() {
               need human classification. That keeps product capability from
               being mistaken for active municipal deployment.
             </p>
-            <Link className="text-link" href="/ai">
+            <a className="text-link" href="/ai">
               Read the AI report <Arrow />
-            </Link>
+            </a>
           </div>
           <div className="lens-card">
             <span className="panel-kicker">Current AI lens</span>
@@ -151,12 +150,12 @@ export default function Home() {
               Each proposal must preserve provenance and avoid private material.
             </p>
             <div className="button-row">
-              <Link className="button button-primary" href="/contribute">
+              <a className="button button-primary" href="/contribute">
                 Contribution guide <Arrow />
-              </Link>
-              <Link className="button button-secondary" href="/sources">
+              </a>
+              <a className="button button-secondary" href="/sources">
                 Browse source registry
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -45,6 +45,27 @@ test("metadata ignores hostile forwarded host headers", async () => {
   assert.match(html, /\/og\.png/i);
 });
 
+test("internal navigation uses document links instead of the vinext RSC link runtime", async () => {
+  const navigationFiles = [
+    "../app/components.tsx",
+    "../app/nav-links.tsx",
+    "../app/page.tsx",
+    "../app/ai/page.tsx",
+    "../app/methodology/page.tsx",
+    "../app/contribute/page.tsx",
+  ];
+  const source = (
+    await Promise.all(
+      navigationFiles.map((path) =>
+        fs.readFile(new URL(path, import.meta.url), "utf8"),
+      ),
+    )
+  ).join("\n");
+
+  assert.doesNotMatch(source, /from ["']next\/link["']/);
+  assert.doesNotMatch(source, /<\/?Link\b/);
+});
+
 for (const [path, copy, title] of routes) {
   test(`server-renders ${path}`, async () => {
     const response = await render(path);

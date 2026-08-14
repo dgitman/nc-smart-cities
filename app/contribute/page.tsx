@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Arrow, PageIntro, Stat } from "../components";
 import { summary } from "../data";
 
@@ -156,9 +155,9 @@ export default function ContributePage() {
               <a href="/community/CODE_OF_CONDUCT.md">Code of conduct <Arrow /></a>
               <a href="/community/SECURITY.md">Security policy <Arrow /></a>
             </div>
-            <Link className="text-link text-link-light" href="/methodology">
+            <a className="text-link text-link-light" href="/methodology">
               Review the full methodology <Arrow />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

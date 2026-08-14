@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Arrow, MethodFlow, Pill } from "../components";
 import { summary } from "../data";
 
@@ -184,12 +183,12 @@ export default function MethodologyPage() {
           <p className="eyebrow">Inspect and improve</p>
           <h2>Trace a claim, then make the record stronger.</h2>
           <div className="button-row">
-            <Link className="button button-light" href="/sources">
+            <a className="button button-light" href="/sources">
               Browse sources <Arrow />
-            </Link>
-            <Link className="button button-outline-light" href="/contribute">
+            </a>
+            <a className="button button-outline-light" href="/contribute">
               Contribution guide <Arrow />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

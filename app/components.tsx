@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { NavLinks } from "./nav-links";
 
 export function Arrow() {
@@ -47,9 +46,9 @@ export function ProjectCard({
         <span>Core finding</span>
         <p>{finding}</p>
       </div>
-      <Link href={href} className="card-link" aria-label={`Explore ${title}`}>
+      <a href={href} className="card-link" aria-label={`Explore ${title}`}>
         Explore the study <Arrow />
-      </Link>
+      </a>
     </article>
   );
 }
@@ -91,13 +90,13 @@ export function SiteHeader() {
       </div>
       <header className="site-header">
         <div className="shell nav-wrap">
-          <Link className="wordmark" href="/" aria-label="NC Smart-City Systems Atlas home">
+          <a className="wordmark" href="/" aria-label="NC Smart-City Systems Atlas home">
             <span className="wordmark-mark" aria-hidden="true">NC</span>
             <span>
               Smart-City Systems Atlas
               <small>North Carolina · Community data</small>
             </span>
-          </Link>
+          </a>
           <NavLinks />
         </div>
       </header>
@@ -121,10 +120,10 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="footer-links">
-          <Link href="/explore">Explore records</Link>
-          <Link href="/sources">Source registry</Link>
-          <Link href="/methodology">Method & limitations</Link>
-          <Link href="/contribute">Contribute</Link>
+          <a href="/explore">Explore records</a>
+          <a href="/sources">Source registry</a>
+          <a href="/methodology">Method & limitations</a>
+          <a href="/contribute">Contribute</a>
         </div>
       </div>
     </footer>
