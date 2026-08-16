@@ -1,11 +1,13 @@
 import { Arrow, MethodFlow, Pill } from "../components";
 import { summary } from "../data";
+import { createPageMetadata } from "../seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Method & Limitations",
   description:
     "How the NC Smart-City Systems Atlas merges records, handles sources, classifies AI, and protects private information.",
-};
+  path: "/methodology",
+});
 
 export default function MethodologyPage() {
   return (

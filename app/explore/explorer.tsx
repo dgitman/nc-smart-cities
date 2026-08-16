@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { SystemRecord } from "../data";
-import { aiRoleLabels, sourceDomainFromUrl } from "../data";
+import type { SystemRecord } from "../data-model";
+import {
+  aiRoleLabels,
+  cityPath,
+  sourceDomainFromUrl,
+  systemPath,
+} from "../data-model";
 
 type PublicDataset = {
   records: SystemRecord[];
@@ -203,10 +208,10 @@ export function Explorer() {
             {filtered.slice(0, visible).map((record) => (
               <article className="record-card" key={record.id}>
                 <div className="record-topline">
-                  <span>{record.jurisdiction}</span>
+                  <a href={cityPath(record.jurisdiction)}>{record.jurisdiction}</a>
                   <span>{record.lifecycleStatus}</span>
                 </div>
-                <h2>{record.initiative}</h2>
+                <h2><a href={systemPath(record)}>{record.initiative}</a></h2>
                 <p className="record-technology">{record.technology}</p>
                 <ul className="record-tags" aria-label="Record classifications">
                   <li>{record.pillar}</li>

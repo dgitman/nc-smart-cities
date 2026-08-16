@@ -15,7 +15,10 @@ export function NavLinks() {
   return (
     <nav aria-label="Primary navigation">
       {links.map(([href, label]) => {
-        const active = pathname === href || pathname.startsWith(`${href}/`);
+        const exploreSection = href === "/explore" && ["/cities", "/pillars", "/systems"].some(
+          (section) => pathname === section || pathname.startsWith(`${section}/`),
+        );
+        const active = pathname === href || pathname.startsWith(`${href}/`) || exploreSection;
         return (
           <a key={href} href={href} aria-current={active ? "page" : undefined}>
             {label}

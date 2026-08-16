@@ -1,49 +1,19 @@
 import datasetJson from "../public/data/smart-city-systems.json";
 import summaryJson from "../public/data/data-summary.json";
+import type { SystemRecord } from "./data-model";
+import { slugify } from "./data-model";
 
-export type SourceRecord = {
-  url: string;
-  domain: string;
-  type: string;
-  verificationStatus: string;
-  origin: string;
-};
-
-export type SystemRecord = {
-  id: string;
-  jurisdiction: string;
-  county: string;
-  population: number | null;
-  populationYear: number | null;
-  initiative: string;
-  pillar: string;
-  category: string;
-  technology: string;
-  department: string;
-  audience: string;
-  vendor: string;
-  product: string;
-  lifecycleStatus: string;
-  aiRole: string;
-  publicNote: string;
-  genAiOnHomepage?: boolean;
-  origins: string[];
-  sources: SourceRecord[];
-};
+export {
+  aiRoleLabels,
+  cityPath,
+  pillarPath,
+  slugify,
+  sourceDomainFromUrl,
+  systemPath,
+} from "./data-model";
+export type { SourceRecord, SystemRecord } from "./data-model";
 
 export type DatasetSummary = typeof summaryJson;
-
-export function sourceDomainFromUrl(sourceUrl: string): string {
-  try {
-    const parsed = new URL(sourceUrl);
-    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-      return "Invalid source";
-    }
-    return parsed.hostname.toLowerCase().replace(/^www\./, "");
-  } catch {
-    return "Invalid source";
-  }
-}
 
 export const dataset = datasetJson as {
   metadata: DatasetSummary;
@@ -61,10 +31,27 @@ export const pillars = [
   ["06", "Safety & Resilience", "Response, environment, continuity"],
 ] as const;
 
-export const aiRoleLabels: Record<string, string> = {
-  "AI-primary or AI-dependent": "AI-primary / dependent",
-  "AI-assisted workflow": "AI-assisted workflow",
-  "AI-capable; use unconfirmed": "AI-capable / unconfirmed",
-  "AI relevance needs review": "AI relevance needs review",
-  "No AI signal in published fields": "No AI signal",
-};
+export const jurisdictions = [
+  ...new Set(dataset.records.map((record) => record.jurisdiction)),
+].sort();
+
+export const recordsById = new Map(
+  dataset.records.map((record) => [record.id, record] as const),
+);
+
+export const recordsByCitySlug = new Map<string, SystemRecord[]>();
+export const recordsByPillarSlug = new Map<string, SystemRecord[]>();
+
+for (const record of dataset.records) {
+  const cityKey = slugify(record.jurisdiction);
+  recordsByCitySlug.set(cityKey, [
+    ...(recordsByCitySlug.get(cityKey) ?? []),
+    record,
+  ]);
+
+  const pillarKey = slugify(record.pillar);
+  recordsByPillarSlug.set(pillarKey, [
+    ...(recordsByPillarSlug.get(pillarKey) ?? []),
+    record,
+  ]);
+}

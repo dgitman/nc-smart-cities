@@ -1,11 +1,13 @@
 import { Arrow, PageIntro, Stat } from "../components";
 import { summary } from "../data";
+import { createPageMetadata } from "../seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Contribute",
   description:
     "How to propose additions, corrections, evidence updates, and AI classifications for the NC Smart-City Systems Atlas.",
-};
+  path: "/contribute",
+});
 
 const reviewStates = [
   ["01", "Proposed", "A contributor supplies a structured record and direct public evidence."],

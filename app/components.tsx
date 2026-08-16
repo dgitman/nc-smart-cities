@@ -1,4 +1,5 @@
 import { NavLinks } from "./nav-links";
+import summary from "../public/data/data-summary.json";
 
 export function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -115,14 +116,17 @@ export function SiteFooter() {
         </div>
         <div>
           <p>
-            Research snapshot: July 2026. Every published record carries a
+            Dataset version <strong>{summary.version}</strong> · Research snapshot: July 2026. Every published record carries a
             public source; evidence is not proof of current operation or value.
           </p>
         </div>
         <div className="footer-links">
           <a href="/explore">Explore records</a>
+          <a href="/cities">Communities</a>
+          <a href="/pillars">Civic pillars</a>
           <a href="/sources">Source registry</a>
           <a href="/methodology">Method & limitations</a>
+          <a href="/about">About & citation</a>
           <a href="/contribute">Contribute</a>
         </div>
       </div>

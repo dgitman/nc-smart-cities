@@ -1,11 +1,14 @@
 import { Arrow, MethodFlow, Stat } from "./components";
-import { pillars, summary } from "./data";
+import { pillarPath, pillars, summary } from "./data";
+import { createPageMetadata } from "./seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "NC Smart-City Systems Atlas",
   description:
     "Explore a source-linked community dataset of municipal technology systems in North Carolina, including an AI reporting lens.",
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (
@@ -79,8 +82,25 @@ export default function Home() {
                 <strong className="pillar-count">
                   {summary.pillars[title as keyof typeof summary.pillars].toLocaleString()} records
                 </strong>
+                <a className="text-link" href={pillarPath(title)}>
+                  Explore this pillar <Arrow />
+                </a>
               </article>
             ))}
+          </div>
+          <div className="section-end-link"><a className="button button-secondary" href="/pillars">Browse all six civic pillars</a></div>
+        </div>
+      </section>
+
+      <section className="section section-compact section-tint-blue">
+        <div className="shell split-callout">
+          <div>
+            <p className="eyebrow">Browse by place</p>
+            <h2>See the documented systems associated with each community.</h2>
+          </div>
+          <div>
+            <p className="large-copy">Dedicated place pages make the evidence for Cary, Apex, Raleigh, Durham, Asheville, and 46 other jurisdictions directly discoverable.</p>
+            <a className="button button-primary" href="/cities">Browse North Carolina communities <Arrow /></a>
           </div>
         </div>
       </section>

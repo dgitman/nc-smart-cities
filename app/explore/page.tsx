@@ -1,12 +1,14 @@
 import { PageIntro, Stat } from "../components";
-import { summary } from "../data";
+import { cityPath, pillarPath, pillars, summary } from "../data";
+import { createPageMetadata } from "../seo";
 import { Explorer } from "./explorer";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Explore the Atlas",
   description:
     "Search and filter source-linked municipal technology records across North Carolina.",
-};
+  path: "/explore",
+});
 
 export default function ExplorePage() {
   return (
@@ -23,6 +25,33 @@ export default function ExplorePage() {
         <Stat value={summary.totals.publicSources.toLocaleString()} label="distinct sources" />
         <Stat value="Jul 2026" label="research snapshot" />
       </PageIntro>
+
+      <section className="section section-compact browse-entry-points">
+        <div className="shell browse-entry-grid">
+          <div>
+            <p className="eyebrow">Browse by place</p>
+            <h2>Start with a North Carolina community.</h2>
+            <p>Each place page collects its systems, evidence links, and civic-pillar mix.</p>
+            <div className="compact-link-list">
+              {["Cary", "Apex", "Raleigh", "Durham", "Asheville"].map((city) => (
+                <a key={city} href={cityPath(city)}>{city}</a>
+              ))}
+              <a href="/cities">All 51 jurisdictions →</a>
+            </div>
+          </div>
+          <div>
+            <p className="eyebrow">Browse by theme</p>
+            <h2>Follow a civic system across communities.</h2>
+            <p>The six-pillar taxonomy makes related municipal technologies easier to compare.</p>
+            <div className="compact-link-list">
+              {pillars.map(([, title]) => (
+                <a key={title} href={pillarPath(title)}>{title}</a>
+              ))}
+              <a href="/pillars">All civic pillars →</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section explorer-section">
         <div className="shell">

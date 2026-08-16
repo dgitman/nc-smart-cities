@@ -1,12 +1,14 @@
 import { PageIntro, Stat } from "../components";
 import { summary } from "../data";
+import { createPageMetadata } from "../seo";
 import { SourceRegistry } from "./source-registry";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Source Registry",
   description:
     "Browse the public evidence behind records in the NC Smart-City Systems Atlas.",
-};
+  path: "/sources",
+});
 
 export default function SourcesPage() {
   return (

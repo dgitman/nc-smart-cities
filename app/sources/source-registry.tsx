@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { SourceRecord, SystemRecord } from "../data";
-import { sourceDomainFromUrl } from "../data";
+import type { SourceRecord, SystemRecord } from "../data-model";
+import { sourceDomainFromUrl } from "../data-model";
 
 type PublicDataset = { records: SystemRecord[] };
 

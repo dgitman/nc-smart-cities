@@ -1,11 +1,13 @@
 import { Arrow, PageIntro, RatioBar, Stat } from "../components";
 import { dataset, summary } from "../data";
+import { createPageMetadata } from "../seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "AI Report",
   description:
     "A conservative reporting lens on AI signals inside North Carolina municipal smart-city systems.",
-};
+  path: "/ai",
+});
 
 const aiRecords = dataset.records.filter(
   (record) => record.aiRole !== "No AI signal in published fields",
