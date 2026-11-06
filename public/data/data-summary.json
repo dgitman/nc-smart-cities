@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "snapshotDate": "2026-07",
+  "generatedDate": "2026-08-13",
+  "title": "North Carolina Smart-City Systems Community Dataset",
+  "description": "A sanitized, source-linked merge of two internship research tables. AI is represented as a reporting lens inside the broader smart-city systems model.",
+  "totals": {
+    "records": 651,
+    "jurisdictions": 51,
+    "counties": 28,
+    "publicSources": 443,
+    "sourceDomains": 221,
+    "aiTaggedRecords": 149,
+    "aiTaggedJurisdictions": 40,
+    "genAiHomepageJurisdictions": 5
+  },
+  "pillars": {
+    "Civic & Community": 84,
+    "Digital Governance & Technology": 190,
+    "Economy & Administration": 9,
+    "Infrastructure & Utilities": 65,
+    "Mobility & Transport": 176,
+    "Safety & Resilience": 127
+  },
+  "aiRoles": {
+    "AI relevance needs review": 106,
+    "AI-assisted workflow": 3,
+    "AI-capable; use unconfirmed": 11,
+    "AI-primary or AI-dependent": 29
+  },
+  "quality": {
+    "sourceRequiredForPublication": true,
+    "recordsExcludedWithoutSafePublicSource": 11,
+    "exactDuplicatesCollapsed": 2,
+    "aiRowsMergedIntoSmartCity": 10,
+    "aiPlaceholderRowsExcluded": 46,
+    "verificationReminder": "A visible source proves that evidence was found; it does not prove that a system is active, effective, endorsed, or current."
+  },
+  "scopeNote": "This is a researched sample, not a statewide census. Working source scope statements were inconsistent, and research depth varied by jurisdiction.",
+  "publicationNote": "Personal contacts, raw notes with sensitive markers, internal or private links, and records without a safe public source are excluded."
+}
